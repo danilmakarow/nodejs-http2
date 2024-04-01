@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <script src="script.js" defer></script>
+    <div>
+      <form id="dataForm">
+        <div class="flex">
+          <div class="flex">
+            <label for="reset" class="label">Reset:</label>
+            <input
+              type="checkbox"
+              id="reset"
+              name="reset"
+              class="input-field"
+            />
+          </div>
+          <div class="flex">
+            <label for="take" class="label">Take:</label>
+            <input type="number" id="take" name="take" class="input-field" />
+          </div>
+        </div>
+        <div class="flex">
+          <label for="sortBy" class="label">Sort By:</label>
+          <div class="flex">
+            <select id="sortBy" name="sortBy" class="input-field">
+              <option></option>
+            </select>
+            <select id="sortOrder" name="sortOrder" class="input-field">
+              <option></option>
+              <option value="1">ASC</option>
+              <option value="-1">DESC</option>
+            </select>
+          </div>
+        </div>
+        <div class="flex">
+          <label class="label">Filter by:</label>
+          <div class="flex">
+            <select id="filterSelect" name="filterSelect" class="input-field">
+              <option></option>
+            </select>
+            <input
+              id="filterValue"
+              type="text"
+              name="filterValue"
+              class="input-field"
+            />
+          </div>
+        </div>
+        <div id="filters"></div>
+        <div class="flex">
+          <button type="submit" id="submitButton" class="button">
+            Send cursor options
+          </button>
+        </div>
+      </form>
+
+      <div class="flex">
+        <button class="button button-load">Load next pack of data</button>
+      </div>
+
+      <div class="container">
+        <table id="employee-table">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Position</th>
+              <th>Department</th>
+            </tr>
+          </thead>
+          <tbody id="employee-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
