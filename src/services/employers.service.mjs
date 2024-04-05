@@ -1,13 +1,19 @@
 import { sendOkResponse } from "../responses/ok-response.mjs";
 import { cursorService } from "./cursor.service.mjs";
 import { employersCollection } from "../collections/employers.collection.mjs";
-import {BadRequestException} from "../exceptions/bad-request.exception.mjs";
-import {Errors} from "../constants/errors-constants.mjs";
+import { BadRequestException } from "../exceptions/bad-request.exception.mjs";
+import { Errors } from "../constants/errors-constants.mjs";
 
 export class EmployersService {
+  /** @type {CursorService} */
   #cursorService;
+  /** @type {EmployersCollection} */
   #employersCollection;
 
+  /**
+   * @param {CursorService} cursorService
+   * @param {EmployersCollection} employersCollection
+   */
   constructor(cursorService, employersCollection) {
     this.#cursorService = cursorService;
     this.#employersCollection = employersCollection;
@@ -23,7 +29,8 @@ export class EmployersService {
     }
 
     const data = await this.#cursorService.takeFromCursor(
-      context.sessionContext.cursor, context.requestContext.query.take
+      context.sessionContext.cursor,
+      context.requestContext.query.take,
     );
 
     sendOkResponse(dataTransport, { data });

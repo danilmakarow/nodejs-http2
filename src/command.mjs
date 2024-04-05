@@ -1,5 +1,5 @@
 import {ConnectionContext} from "./context.mjs";
-import {errorHandler} from "./handlers/error-handler.mjs";
+
 /**
  * @callback Handler
  * @param {DataTransport} dataTransport

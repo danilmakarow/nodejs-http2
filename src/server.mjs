@@ -4,6 +4,7 @@ import EventEmitter from "node:events";
 import { constants as CRYPTO_CONSTANTS } from "crypto";
 import { Multiplexer } from "./multiplexer.mjs";
 import { handler } from "./handler.mjs";
+import {Env} from "./constants/env.mjs";
 
 let wsModule = null;
 try {
@@ -151,11 +152,11 @@ export class H2Server extends EventEmitter {
 
 const server = new H2Server({
   ssl: {
-    key: fs.readFileSync("./certificates/localhost.key"),
-    cert: fs.readFileSync("./certificates/localhost.crt"),
+    key: fs.readFileSync(Env.CERTIFICATE_KEY_PATH),
+    cert: fs.readFileSync(Env.CERTIFICATE_PATH),
   },
   allowHTTP1: true,
   useWebSockets: false,
 });
 
-server.listen(3000, "127.0.0.1");
+server.listen(Env.API_PORT, Env.API_URL);
